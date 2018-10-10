@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import ElementsList from '../ElementsList/ElementsList';
+import ElementsList from '../ElementsList';
 
 import './_app.scss';
 
