@@ -1,17 +1,23 @@
 @import '../../styles/helpers';
 
+/* Variables */
+$_APP_PADDING: 40 !default;
+$_APP_SIDE_PADDING: 20 !default;
+
 .app {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-    height: 100%;
-    padding: remcalc(40) 0;
+    width: calc(100% - #{remcalc( 2 * $_APP_SIDE_PADDING )});
+    height: calc(100vh - #{remcalc( 2 * $_APP_PADDING )});
+    padding: remcalc($_APP_PADDING) remcalc($_APP_SIDE_PADDING);
     text-transform: uppercase;
 }
 
 .gameHeading {
-    font-size: remcalc(28);
     margin: 0 0 remcalc(80);
+    font-size: remcalc(28);
+    text-align: center;
+    line-height: 1.4
 }

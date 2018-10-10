@@ -1,0 +1,9 @@
+@import '../../styles/helpers';
+
+.gameAlert {
+    font-size: remcalc(22);
+    text-align: center;
+
+    &.isCorrect { color: $madang; }
+    &.isWrong { color: $burntsienna; }
+}

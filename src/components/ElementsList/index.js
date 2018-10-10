@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import './_elementsList.scss';
+
 import list from './ExternalList';
 
 function listElement() {
@@ -7,7 +9,7 @@ function listElement() {
 
     return (
         listItems.map((e, i) => ( 
-            <li className = 'listElement' key = {i} > {e} </li>
+            <li className = 'listItem' key = {i} > {e} </li>
         ))
     )
 }

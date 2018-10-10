@@ -1,3 +1,9 @@
 @import '../../styles/helpers';
 
-
+.elementsList {
+    .listItem {
+        margin: remcalc(10) 0;
+        font-size: remcalc(28);
+        text-align: center;
+    }
+}

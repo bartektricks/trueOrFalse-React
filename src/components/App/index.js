@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import ElementsList from '../ElementsList';
+import GameAlert from '../GameAlert';
 
 import './_app.scss';
 
@@ -10,9 +11,7 @@ class App extends Component {
       <div className="app">
         <h1 className='gameHeading'>True or false game</h1>
         <ElementsList />
-        <p className='gameAlert isCorrect isWrong'>
-          Your answer was correct
-        </p>
+        <GameAlert answer='correct' />
         <div className='buttonsWrapper'>
           <button className='gameButton isTrue isFalse'>
             True
