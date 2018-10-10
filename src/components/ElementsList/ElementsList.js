@@ -2,18 +2,24 @@ import React, { Component } from 'react';
 
 import list from './ExternalList';
 
-class ElementsList extends Component {
-    listElement = () => {
-        const listItems = Object.keys(list);
-        listItems.map((element) => {
-            return <li className='listElement'>element</li>;
-        })
-    }
+function listElement() {
+    const listItems = Object.keys(list);
 
+    listItems.map((element) => {
+        console.log(element);
+        return (
+            <li className='listElement' key={new Date()} >
+                {element}
+            </li>
+        );
+    })
+}
+
+class ElementsList extends Component {
     render() {
         return (
             <ul className='elementsList'>
-                {this.listElement()}
+                {listElement()}
             </ul>
         );
     }
