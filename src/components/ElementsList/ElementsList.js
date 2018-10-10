@@ -4,11 +4,12 @@ import list from './ExternalList';
 
 function listElement() {
     const listItems = Object.keys(list);
-    const displayList = listItems.map((e, i) => ( 
-        <li className = 'listElement' key = {i} > {e} </li>
-    ));
 
-    return displayList;
+    return (
+        listItems.map((e, i) => ( 
+            <li className = 'listElement' key = {i} > {e} </li>
+        ))
+    )
 }
 
 class ElementsList extends Component {
