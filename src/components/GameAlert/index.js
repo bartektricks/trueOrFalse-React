@@ -32,7 +32,7 @@ class GameAlert extends Component {
                     this.returnAlert(answer)
                 :
                     <p className={style.gameAlert}>
-                        Do something mofo!
+                        Select your answer
                     </p>
                 }
             </React.Fragment>

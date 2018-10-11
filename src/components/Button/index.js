@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 /* Styles */
-import './_button.scss';
+import style from './Button.module.scss';
 
 class Button extends Component {
+    static propTypes = {
+        buttonType: PropTypes.bool,
+        handleClick: PropTypes.func,
+    }
 
     handleButtonState = () => {
         this.props.handleClick(this.props.buttonType);
@@ -11,20 +17,16 @@ class Button extends Component {
 
     returnButton = () => {
         const { buttonType } = this.props;
+        const buttonClasses = classNames(style.gameButton, {
+            [style.isTrue]: buttonType,
+            [style.isFalse]: !buttonType,
+        });
 
-        if( buttonType === true ) {
-            return (
-                <button className='gameButton isTrue' onClick={this.handleButtonState}>
-                    True
-                </button>
-            )
-        } else if ( buttonType === false ) {
-            return (
-                <button className='gameButton isFalse' onClick={this.handleButtonState}>
-                    False
-                </button>
-            )
-        }
+        return (
+            <button className={buttonClasses} onClick={this.handleButtonState}>
+                    {buttonType ? 'True' : 'False'}
+            </button>
+        )
     }
 
     render() {
