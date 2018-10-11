@@ -8,6 +8,7 @@
     border: 2px solid;
     border-radius: remcalc(5);
     background: transparent;
+    cursor: pointer;
 
     &.isTrue { color: $madang; }
     &.isFalse { color: $burntsienna; }
