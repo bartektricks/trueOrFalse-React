@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+/* Styles */
 import './_gameAlert.scss';
 
 class GameAlert extends Component {

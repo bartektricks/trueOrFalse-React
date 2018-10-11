@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 
+/* Components */
 import ElementsList from '../ElementsList';
 import GameAlert from '../GameAlert';
 import Button from '../Button';
 
+/* External content */
 import list from '../../vendors/ExternalList';
 
+/* Styles */
 import './_app.scss';
 
 class App extends Component {

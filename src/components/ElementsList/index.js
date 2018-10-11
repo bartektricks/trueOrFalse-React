@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 
-import './_elementsList.scss';
-
+/* External content */
 import list from '../../vendors/ExternalList';
+
+/* Styles */
+import './_elementsList.scss';
 
 class ElementsList extends Component {
 
