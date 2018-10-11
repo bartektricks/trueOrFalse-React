@@ -16,12 +16,15 @@ class App extends Component {
   state = {
     points: 0,
     step: 0,
-    answer: ''
-  }
+    answer: false,
+    userStartedInteractions: false,
+  };
 
   handleAnswer = (answer, step, listAnswers) => {
 
     const { points } = this.state;
+
+    this.setState({ userStartedInteractions: true });
 
     if(listAnswers[step] === answer) {
       this.setState({
@@ -33,7 +36,7 @@ class App extends Component {
         answer: false
       })
     }
-  }
+  };
 
   handleClick = (answer) => {
 
@@ -54,7 +57,9 @@ class App extends Component {
       <div className="app">
         <h1 className='gameHeading'>True or false game</h1>
         <ElementsList list={list} step={this.state.step} />
-        <GameAlert answer={this.state.answer} />
+          {this.state.userStartedInteractions && (
+              <GameAlert answer={this.state.answer} />
+          )}
         <div className='buttonsWrapper'>
           <Button buttonType={true} handleClick={this.handleClick} />
           <Button buttonType={false} handleClick={this.handleClick} />
