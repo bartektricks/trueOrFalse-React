@@ -7,7 +7,13 @@ class GameAlert extends Component {
 
     returnAlert = () => {
 
-        const { answer } = this.props;
+        let { userStartedInteractions, answer } = this.props;
+
+        if(userStartedInteractions === false) {
+            answer = null;
+        } else {
+            answer = this.props.answer;
+        }
 
         switch (answer) {
             case true:

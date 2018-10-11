@@ -57,9 +57,7 @@ class App extends Component {
       <div className="app">
         <h1 className='gameHeading'>True or false game</h1>
         <ElementsList list={list} step={this.state.step} />
-          {this.state.userStartedInteractions && (
-              <GameAlert answer={this.state.answer} />
-          )}
+        <GameAlert answer={this.state.answer} userStartedInteractions={this.state.userStartedInteractions} />
         <div className='buttonsWrapper'>
           <Button buttonType={true} handleClick={this.handleClick} />
           <Button buttonType={false} handleClick={this.handleClick} />
