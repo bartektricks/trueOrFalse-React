@@ -29,9 +29,7 @@ class Button extends Component {
 
     render() {
         return (
-            <React.Fragment>
-                {this.returnButton()}
-            </React.Fragment>
+            this.returnButton()
         )
     }
 }

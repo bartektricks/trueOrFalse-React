@@ -10,20 +10,18 @@ class GameAlert extends Component {
         const { answer } = this.props;
 
         switch (answer) {
-            case 'correct':
+            case true:
                 return (
                     <p className='gameAlert isCorrect'>
                         Correct answer
                     </p>
                 )
-            break;
-            case 'wrong':
+            case false:
                 return (
                     <p className='gameAlert isWrong'>
                         Wrong answer
                     </p>
                 )
-            break;
             default:
                 return (
                     <p className='gameAlert'>

@@ -38,11 +38,11 @@ class App extends Component {
     if(answers[step] === answer) {
       this.setState({
         points: points + 1,
-        answer: 'correct'
+        answer: true
       })
     } else {
       this.setState({
-        answer: 'wrong'
+        answer: false
       })
     }
   }
