@@ -19,10 +19,9 @@ class App extends Component {
     answer: ''
   }
 
-  handleAnswer = (answer, step) => {
+  handleAnswer = (answer, step, listAnswers) => {
 
     const { points } = this.state;
-    const listAnswers = Object.values(list);
 
     if(listAnswers[step] === answer) {
       this.setState({
@@ -42,7 +41,7 @@ class App extends Component {
     const listAnswers = Object.values(list);
 
     if(step < listAnswers.length) {
-      this.handleAnswer(answer, step);
+      this.handleAnswer(answer, step, listAnswers);
 
       this.setState({
         step: step + 1
