@@ -1,28 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 
 /* Styles */
 import style from './ElementsList.module.scss';
 
-class ElementsList extends Component {
-    render() {
-        const { step, list } = this.props;
-        const listItems = Object.keys(list);
+const ElementsList = props => (
+    <ul className='elementsList' >
+        {Object.keys(props.list).map((listItem, index) =>
+            <li
+                key={index}
+                className={classNames(style.listItem, { [style.isActive]: props.step === index })}
 
-        return ( 
-            <ul className='elementsList' >
-                {listItems.map((listItem, index) =>
-                    <li
-                        key={index}
-                        className={classNames(style.listItem, { [style.isActive]: step === index })}
-
-                    >
-                        {listItem}
-                    </li>
-                )}
-            </ul>
-        );
-    }
-}
+            >
+                {listItem}
+            </li>
+        )}
+    </ul>
+);
 
 export default ElementsList;
