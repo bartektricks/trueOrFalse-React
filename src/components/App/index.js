@@ -16,26 +16,15 @@ class App extends Component {
   state = {
     points: 0,
     step: 0,
-    questions: [],
-    answers: [],
     answer: ''
-  }
-
-  componentDidMount() {
-    const listItems = Object.keys(list);
-    const listAnswers = Object.values(list);
-
-    this.setState({
-      questions: [ ...listItems ],
-      answers: [ ...listAnswers ],
-    });
   }
 
   handleAnswer = (answer, step) => {
 
-    const { answers, points } = this.state;
+    const { points } = this.state;
+    const listAnswers = Object.values(list);
 
-    if(answers[step] === answer) {
+    if(listAnswers[step] === answer) {
       this.setState({
         points: points + 1,
         answer: true
@@ -49,11 +38,12 @@ class App extends Component {
 
   handleClick = (answer) => {
 
-    const { step, questions } = this.state;
+    const { step } = this.state;
+    const listAnswers = Object.values(list);
 
-    this.handleAnswer(answer, step);
+    if(step < listAnswers.length) {
+      this.handleAnswer(answer, step);
 
-    if(step < questions.length) {
       this.setState({
         step: step + 1
       });
