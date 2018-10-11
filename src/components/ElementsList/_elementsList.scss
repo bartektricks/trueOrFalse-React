@@ -5,5 +5,13 @@
         margin: remcalc(10) 0;
         font-size: remcalc(28);
         text-align: center;
+        opacity: .7;
+        transform: scale(.8);
+        transition: all .6s $ease-cubic;
+
+        &.isActive { 
+            transform: scale(1.2);
+            opacity: 1;
+         }
     }
 }

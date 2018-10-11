@@ -16,8 +16,14 @@ $_APP_SIDE_PADDING: 20 !default;
 }
 
 .gameHeading {
-    margin: 0 0 remcalc(80);
     font-size: remcalc(28);
     text-align: center;
     line-height: 1.4
+}
+
+.buttonsWrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: remcalc(320);
 }

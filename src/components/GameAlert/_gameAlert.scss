@@ -1,7 +1,7 @@
 @import '../../styles/helpers';
 
 .gameAlert {
-    font-size: remcalc(22);
+    font-size: remcalc(28);
     text-align: center;
 
     &.isCorrect { color: $madang; }

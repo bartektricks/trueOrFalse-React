@@ -1,0 +1,14 @@
+@import '../../styles/helpers';
+
+.gameButton {
+    padding: remcalc(10) remcalc(36);
+    font-size: remcalc(18);
+    text-transform: uppercase;
+    color: $alabaster;
+    border: 2px solid;
+    border-radius: remcalc(5);
+    background: transparent;
+
+    &.isTrue { color: $madang; }
+    &.isFalse { color: $burntsienna; }
+}

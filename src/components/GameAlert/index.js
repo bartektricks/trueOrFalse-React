@@ -11,13 +11,19 @@ class GameAlert extends Component {
         if(answer === 'correct') {
             return (
                 <p className='gameAlert isCorrect'>
-                    Your answer is {answer}
+                    Correct answer
                 </p>
             )
         } else if (answer === 'wrong') {
             return (
                 <p className='gameAlert isWrong'>
-                    Your answer is {answer}
+                    Wrong answer
+                </p>
+            )
+        } else {
+            return (
+                <p className='gameAlert'>
+                    Choose your answer
                 </p>
             )
         }
