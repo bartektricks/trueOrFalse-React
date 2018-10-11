@@ -1,41 +1,41 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
-/* Styles */
-import './_gameAlert.scss';
+import style from './GameAlert.module.scss';
 
 class GameAlert extends Component {
+    static propTypes = {
+        isTouched: PropTypes.bool,
+        answer: PropTypes.bool,
+    };
 
-    returnAlert = () => {
+    returnAlert = (answer) => {
+        const alertClasses = classNames(style.gameAlert, {
+            [style.isCorrect]: answer,
+            [style.isWrong]: !answer,
+        });
 
-        const { answer } = this.props;
-
-        switch (answer) {
-            case true:
-                return (
-                    <p className='gameAlert isCorrect'>
-                        Correct answer
-                    </p>
-                )
-            case false:
-                return (
-                    <p className='gameAlert isWrong'>
-                        Wrong answer
-                    </p>
-                )
-            default:
-                return (
-                    <p className='gameAlert'>
-                        Choose your answer
-                    </p>
-                )  
-        }
-    }
+        return (
+            <p className={alertClasses}>
+                {answer ? 'Correct Answer!' : 'Wrong Answer!'}
+            </p>
+        )
+    };
 
     render() {
+        const { answer, isTouched } = this.props;
+
         return (
-            <div>
-                {this.returnAlert()}
-            </div>
+            <React.Fragment>
+                {isTouched ?
+                    this.returnAlert(answer)
+                :
+                    <p className={style.gameAlert}>
+                        Do something mofo!
+                    </p>
+                }
+            </React.Fragment>
         )
     }
 }
