@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 
 /* Styles */
-import style from './_elementsList.scss';
+import style from './ElementsList.module.scss';
 
 class ElementsList extends Component {
     render() {
