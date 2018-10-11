@@ -8,24 +8,27 @@ class GameAlert extends Component {
 
         const { answer } = this.props;
 
-        if(answer === 'correct') {
-            return (
-                <p className='gameAlert isCorrect'>
-                    Correct answer
-                </p>
-            )
-        } else if (answer === 'wrong') {
-            return (
-                <p className='gameAlert isWrong'>
-                    Wrong answer
-                </p>
-            )
-        } else {
-            return (
-                <p className='gameAlert'>
-                    Choose your answer
-                </p>
-            )
+        switch (answer) {
+            case 'correct':
+                return (
+                    <p className='gameAlert isCorrect'>
+                        Correct answer
+                    </p>
+                )
+            break;
+            case 'wrong':
+                return (
+                    <p className='gameAlert isWrong'>
+                        Wrong answer
+                    </p>
+                )
+            break;
+            default:
+                return (
+                    <p className='gameAlert'>
+                        Choose your answer
+                    </p>
+                )  
         }
     }
 
