@@ -9,6 +9,7 @@ $_APP_SIDE_PADDING: 20 !default;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    background: linear-gradient(to bottom, $light-gradient, $dark-gradient);
     width: calc(100% - #{remcalc( 2 * $_APP_SIDE_PADDING )});
     height: calc(100vh - #{remcalc( 2 * $_APP_PADDING )});
     padding: remcalc($_APP_PADDING) remcalc($_APP_SIDE_PADDING);
