@@ -19,25 +19,22 @@ class App extends Component {
         step: 0,
         answer: false,
         userStartedInteractions: false,
+        isFinished: false,
     }
   }
 
   handleAnswer = (answer, step, listAnswers) => {
     const { points } = this.state;
 
-    this.setState({
-        userStartedInteractions: true
-    });
+    this.setState({ userStartedInteractions: true });
 
     if(listAnswers[step] === answer) {
       this.setState({
         points: points + 1,
-        answer: true
+        answer: true,
       })
     } else {
-      this.setState({
-        answer: false
-      })
+      this.setState({ answer: false });
     }
   };
 
@@ -48,23 +45,38 @@ class App extends Component {
     if(step < listAnswers.length) {
       this.handleAnswer(answer, step, listAnswers);
 
-      this.setState({
-        step: step + 1
-      });
-    } 
+      this.setState({ step: step + 1 });
+
+      if(step === listAnswers.length - 1) {
+        setTimeout(() => {
+          this.setState({ isFinished: true })
+        }, 1500);
+      }
+    }
   };
 
   render() {
-    const { userStartedInteractions, answer } = this.state;
+    const { userStartedInteractions, answer, isFinished, points } = this.state;
 
     return (
       <div className="app">
         <h1 className='gameHeading'>True or false game</h1>
         <ElementsList list={list} step={this.state.step} />
-        <GameAlert isTouched={userStartedInteractions} answer={answer} />
+        <GameAlert 
+          isTouched={userStartedInteractions} 
+          answer={answer} 
+          isFinished={isFinished} 
+          score={points}
+        />
         <div className='buttonsWrapper'>
-          <Button buttonType={true} handleClick={this.handleClick} />
-          <Button buttonType={false} handleClick={this.handleClick} />
+          <Button 
+            buttonType={true} 
+            handleClick={this.handleClick} 
+          />
+          <Button 
+            buttonType={false} 
+            handleClick={this.handleClick} 
+          />
         </div>
       </div>
     );

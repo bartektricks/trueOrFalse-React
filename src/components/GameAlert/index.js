@@ -8,6 +8,8 @@ class GameAlert extends Component {
     static propTypes = {
         isTouched: PropTypes.bool,
         answer: PropTypes.bool,
+        isFinished: PropTypes.bool,
+        score: PropTypes.number,
     };
 
     returnAlert = (answer) => {
@@ -24,11 +26,16 @@ class GameAlert extends Component {
     };
 
     render() {
-        const { answer, isTouched } = this.props;
+        const { answer, isTouched, isFinished, score } = this.props;
 
         return (
             <React.Fragment>
                 {isTouched ?
+                    isFinished ? 
+                    <p className={style.gameAlert}>
+                        You scored {score} points
+                    </p>
+                    :
                     this.returnAlert(answer)
                 :
                     <p className={style.gameAlert}>
