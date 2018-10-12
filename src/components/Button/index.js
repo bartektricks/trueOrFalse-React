@@ -8,23 +8,26 @@ import style from './Button.module.scss';
 class Button extends Component {
     static propTypes = {
         buttonType: PropTypes.bool,
+        resetButton: PropTypes.bool,
         handleClick: PropTypes.func,
     }
 
     handleButtonState = () => {
-        this.props.handleClick(this.props.buttonType);
+        const { resetButton, buttonType } = this.props;
+        
+        this.props.handleClick( (resetButton) ? 'reset' : buttonType );
     }
 
     returnButton = () => {
-        const { buttonType } = this.props;
+        const { buttonType, resetButton } = this.props;
         const buttonClasses = classNames(style.gameButton, {
             [style.isTrue]: buttonType,
             [style.isFalse]: !buttonType,
         });
 
         return (
-            <button className={buttonClasses} onClick={this.handleButtonState}>
-                    {buttonType ? 'True' : 'False'}
+            <button className={ resetButton ? style.gameButton : buttonClasses } onClick={this.handleButtonState}>
+                    { resetButton ? 'Reset' : buttonType ? 'True' : 'False' }
             </button>
         )
     }

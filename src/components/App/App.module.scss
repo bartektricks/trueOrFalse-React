@@ -27,4 +27,6 @@ $_APP_SIDE_PADDING: 20 !default;
     justify-content: space-between;
     width: 100%;
     max-width: remcalc(320);
+
+    &.isReset { justify-content: center; }
 }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import classnames from 'classnames';
 
 import ElementsList from '../ElementsList';
 import GameAlert from '../GameAlert';
@@ -8,7 +9,7 @@ import Button from '../Button';
 import list from '../../vendors/ExternalList';
 
 /* Styles */
-import './_app.scss';
+import style from './App.module.scss';
 
 class App extends Component {
   constructor(props) {
@@ -52,15 +53,24 @@ class App extends Component {
           this.setState({ isFinished: true })
         }, 1500);
       }
+    } else if (answer === 'reset') {
+      this.setState({
+        points: 0,
+        step: 0,
+        answer: false,
+        userStartedInteractions: false,
+        isFinished: false,
+      })
     }
   };
 
   render() {
     const { userStartedInteractions, answer, isFinished, points } = this.state;
+    const buttonWrapperClass = classnames(style.buttonsWrapper, { [style.isReset] : isFinished });
 
     return (
-      <div className="app">
-        <h1 className='gameHeading'>True or false game</h1>
+      <div className={style.app}>
+        <h1 className={style.gameHeading}>True or false game</h1>
         <ElementsList list={list} step={this.state.step} />
         <GameAlert 
           isTouched={userStartedInteractions} 
@@ -68,15 +78,27 @@ class App extends Component {
           isFinished={isFinished} 
           score={points}
         />
-        <div className='buttonsWrapper'>
-          <Button 
-            buttonType={true} 
-            handleClick={this.handleClick} 
-          />
-          <Button 
-            buttonType={false} 
-            handleClick={this.handleClick} 
-          />
+        <div className={buttonWrapperClass}>
+          {isFinished ? 
+            <Button 
+              buttonType={false}
+              resetButton={true} 
+              handleClick={this.handleClick} 
+            />
+            :
+            <React.Fragment>
+              <Button 
+                buttonType={true} 
+                resetButton={false} 
+                handleClick={this.handleClick} 
+              />
+              <Button 
+                buttonType={false} 
+                resetButton={false} 
+                handleClick={this.handleClick} 
+              />
+            </React.Fragment>
+          }
         </div>
       </div>
     );
