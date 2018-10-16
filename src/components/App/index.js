@@ -29,31 +29,32 @@ class App extends Component {
 
     this.setState({ userStartedInteractions: true });
 
-    if(listAnswers[step] === answer) {
+    (listAnswers[step] === answer) ? 
       this.setState({
         points: points + 1,
         answer: true,
       })
-    } else {
-      this.setState({ answer: false });
-    }
+      :
+      this.setState({ answer: false, });
   };
 
   handleClick = (answer) => {
     const { step } = this.state;
     const listAnswers = Object.values(list);
 
-    if(step < listAnswers.length) {
+    if (step < listAnswers.length) {
       this.handleAnswer(answer, step, listAnswers);
 
       this.setState({ step: step + 1 });
+    }
 
-      if(step === listAnswers.length - 1) {
-        setTimeout(() => {
-          this.setState({ isFinished: true })
-        }, 1500);
-      }
-    } else if (answer === 'reset') {
+    if(step === listAnswers.length - 1) {
+      setTimeout(() => {
+        this.setState({ isFinished: true })
+      }, 500);
+    }
+    
+    if (answer === 'reset') {
       this.setState({
         points: 0,
         step: 0,

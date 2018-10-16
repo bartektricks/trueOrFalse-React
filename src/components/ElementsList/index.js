@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import style from './ElementsList.module.scss';
 
 const ElementsList = props => (
-    <ul className='elementsList' >
+    <ul>
         {Object.keys(props.list).map((listItem, index) =>
             <li
                 key={index}
