@@ -1,15 +1,37 @@
 @import '../../styles/helpers';
 
+.listWrapper {
+    height: remcalc(180);
+    overflow: hidden;
+}
+
 .listItem {
+    height: 0;
+    opacity: 0;
     margin: remcalc(10) 0;
     font-size: remcalc(28);
     text-align: center;
-    opacity: .7;
-    transform: scale(.8);
+    transform: scale(0);
     transition: all .6s $ease-cubic;
 
+    &.isActive,
+    &.isSecond,
+    &.isThird {
+        height: remcalc(20);
+    }
+
     &.isActive { 
-        transform: scale(1.2);
+        transform: scale(1);
         opacity: 1;
-     }
+    }
+
+    &.isSecond {
+        transform: scale(.8);
+        opacity: .5;
+    }
+
+    &.isThird {
+        transform: scale(.6);
+        opacity: .2;
+    }
 }
